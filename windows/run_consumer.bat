@@ -1,6 +1,7 @@
 ECHO OFF
 
-java -jar ./consumer/consumer.jar
+CD consumer
+java -jar consumer.jar
 
 ECHO .
 PAUSE
