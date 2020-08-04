@@ -3,9 +3,6 @@ ECHO OFF
 ECHO CHECKING PYTHON:
 python --version
 ECHO.
-ECHO CHECKING JAVA:
-java --version
-ECHO.
 CD install
 
 :: Install Python
