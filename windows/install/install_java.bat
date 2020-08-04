@@ -1,12 +1,13 @@
 ECHO OFF
 
-SET /P INSTALLJAVA=Would you like to install Java 8 (Y/[N])?
-IF %INSTALLJAVA% == y SET JAVATRUE=1
-IF %INSTALLJAVA% == Y SET JAVATRUE=1
-IF DEFINED JAVATRUE (
-    ECHO INSTALLING JAVA...
-    ..\tools\java\jre-8u261-windows-i586-iftw.exe
-    ECHO JAVA INSTALLED.
-) ELSE (
-    ECHO SKIPPING JAVA INSTALLATION.
-)
+ECHO ACQUIRING JAVA JDK 11...
+ECHO Downloading...
+:: powershell Start-BitsTransfer -source "https://download.java.net/java/GA/jdk11/9/GPL/openjdk-11.0.2_windows-x64_bin.zip"
+::powershell -Command "(New-Object Net.WebClient).DownloadFile('https://download.java.net/java/GA/jdk11/9/GPL/openjdk-11.0.2_windows-x64_bin.zip', '..\tools\java\jdk11.zip')"
+..\tools\curl\bin\curl.exe "https://download.java.net/java/GA/jdk11/9/GPL/openjdk-11.0.2_windows-x64_bin.zip" --output ..\tools\java\jdk11.zip
+ECHO Unzipping...
+powershell Expand-Archive ..\tools\java\jdk11.zip -DestinationPath ..\tools\java
+DEL ..\tools\java\jdk11.zip
+ECHO JAVA ACQUIRED.
+
+PAUSE
