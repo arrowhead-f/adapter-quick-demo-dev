@@ -1,5 +1,7 @@
 ECHO OFF
 
+SET PATH=%PATH%;C:\msys64\usr\bin
+
 ECHO REGISTERING ADAPTER IN THE CLOUD...
 ECHO Enter the names that you provided at certificate generation.
 SET /P PROVIDERNAME=Adapter name: 
